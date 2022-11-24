@@ -53,7 +53,7 @@ jobs:
       #     command: source /usr/local/bin/deployment-helpers-v1.sh; authenticateToACR
       - azure-acr/acr-login:
           configure-docker-credentials-store: false
-          registry-name: ACR_REGISTRY_NAME
+          registry-name: ${ACR_REGISTRY_NAME}
       - run:
           name: Run the integration test script
           command: .circleci/run_integration_tests.sh
