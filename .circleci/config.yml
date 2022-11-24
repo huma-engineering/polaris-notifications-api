@@ -53,7 +53,7 @@ jobs:
       #     command: source /usr/local/bin/deployment-helpers-v1.sh; authenticateToACR
       - run:
           name: Auth with ACR
-          command: az acr login -n $ACR_REGISTRY_NAME -u $AZURE_USERNAME -p AZURE_PASSWORD
+          command: az acr login -n $ACR_REGISTRY_NAME -u $AZURE_USERNAME -p $AZURE_PASSWORD
       - run:
           name: Run the integration test script
           command: .circleci/run_integration_tests.sh
