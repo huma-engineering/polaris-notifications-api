@@ -9,12 +9,15 @@ repository = "https://github.com/draysontechnologies/dhos-notifications-api"
 [[tool.poetry.source]]
 name = "sensynehealth"
 url = "https://pypi.fury.io/sensynehealth/"
+default = false
+secondary = true
 
 [tool.poetry.dependencies]
 python = "^3.9"
 auth0-api-client = "1.*"
 she-logging = "1.*"
 flask-batteries-included = {version = "3.*", extras = ["apispec"]}
+wheel = {version = "^0.38.0", source = "pypi"}
 
 [tool.poetry.dev-dependencies]
 bandit = "*"
