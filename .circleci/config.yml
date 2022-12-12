@@ -74,14 +74,13 @@ jobs:
           command: .circleci/record_build_info.sh
       - run:
           name: Build image
-          command: docker build -t ${CIRCLE_PROJECT_REPONAME} --build-arg GEMFURY_DOWNLOAD_KEY .
+          command: docker build -t ${CIRCLE_PROJECT_REPONAME}
       - azure-acr/build-and-push-image:
           checkout: false
           login-server-name: ${AZURE_LOGIN_SERVER_NAME}
-          registry-name: ${AZURE_REGISTRY_NAME}
+          registry-name: ${ACR_REGISTRY_NAME}
           repo: ${ACR_REPO_BASE}/dhos-notifications-api
           tag: dev,cb-${CIRCLE_BUILD_NUM},$(git log --pretty=format:'%h' -n 1)
-          extra-build-args: --build-arg GEMFURY_DOWNLOAD_KEY
       - run:
           name: Deploy to Azure dev environment
           command: .circleci/deploy_dev.sh
