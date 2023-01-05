@@ -58,8 +58,6 @@ services:
     container_name: "dhos-notifications-api"
     build:
       context: ..
-      args:
-        - GEMFURY_DOWNLOAD_KEY
     environment:
       <<: *COMMON_ENVIRONMENT
     command: >-
