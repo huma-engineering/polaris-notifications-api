@@ -41,7 +41,7 @@ jobs:
     name: Integration testing
     runs-on: ubuntu-latest
     container:
-      image: ${{ env.REGISTRY }}/she/circleci-build-image
+      image: humagdmacr.azurecr.io/she/circleci-build-image
       credentials:
         username: ${{ env.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
@@ -62,7 +62,7 @@ jobs:
     if: ${{ github.ref == 'refs/heads/$env.DEFAULT_BRANCH' }}
     runs-on: ubuntu-latest
     container:
-      image: ${{ env.REGISTRY }}/she/circleci-build-image
+      image: humagdmacr.azurecr.io/she/circleci-build-image
       credentials:
         username: ${{ env.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
