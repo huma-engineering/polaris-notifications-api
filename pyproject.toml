@@ -6,12 +6,6 @@ authors = ["Jon Daly <jonathan.daly@sensynehealth.com>"]
 keywords = ["Notifications", "DHOS"]
 repository = "https://github.com/draysontechnologies/dhos-notifications-api"
 
-[[tool.poetry.source]]
-name = "sensynehealth"
-url = "https://pypi.fury.io/sensynehealth/"
-default = false
-secondary = true
-
 [tool.poetry.dependencies]
 python = "^3.9"
 auth0-api-client = "1.*"
