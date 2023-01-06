@@ -5,7 +5,7 @@ on: [workflow_dispatch, push, pull_request]
 env:
   REGISTRY: humagdmacr.azurecr.io
   ACR_USERNAME: humagdmacr
-  DEFAULT_BRANCH: default
+  DEFAULT_BRANCH: develop
 
 jobs:
   test:
