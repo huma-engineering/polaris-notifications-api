@@ -28,7 +28,7 @@ jobs:
       - name: Cache python dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.tox
+          path: '**/.tox'
           key: v1-poetry-deps-${{ hashFiles('**/poetry.lock', '**/tox.ini') }}
           restore-keys: v1-poetry-deps-
       - name: Run tox tests
@@ -58,11 +58,6 @@ jobs:
     needs: [test, integration_tests]
     if: ${{ github.ref == 'refs/heads/$env.DEFAULT_BRANCH' }}
     runs-on: ubuntu-latest
-    container:
-      image: humagdmacr.azurecr.io/she/circleci-build-image
-      credentials:
-        username: ${{ env.ACR_USERNAME }}
-        password: ${{ secrets.ACR_PASSWORD }}
     env:
       ACR_REPO_BASE: dhos
     steps:
