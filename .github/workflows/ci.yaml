@@ -50,7 +50,7 @@ jobs:
           username: ${{ env.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
       - name: Run the integration test script
-        run: .run_integration_tests.sh
+        run: ./run_integration_tests.sh
 
   build_and_push:
     name: Build and push
