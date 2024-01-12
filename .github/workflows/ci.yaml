@@ -48,6 +48,7 @@ jobs:
     if: ${{ github.ref == 'refs/heads/develop' }}
     runs-on: ubuntu-latest
     env:
+      ACR_USERNAME: humagdmacr
       ACR_REPO_BASE: dhos
       REGISTRY: humagdmacr.azurecr.io
     steps:
