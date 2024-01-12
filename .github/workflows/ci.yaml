@@ -48,23 +48,23 @@ jobs:
     if: ${{ github.ref == 'refs/heads/develop' }}
     runs-on: ubuntu-latest
     env:
-      GHCR_REPO_BASE: huma-engineering/dhos
-      REGISTRY: ghcr.io
+      ACR_REPO_BASE: dhos
+      REGISTRY: humagdmacr.azurecr.io
     steps:
       - uses: actions/checkout@v3
-      - name: Log in to the GitHub Packages
+      - name: Log in to the Azure Container Registry
         uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ env.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/${{ env.GHCR_REPO_BASE }}/dhos-notifications-api
+          images: ${{ env.REGISTRY }}/${{ env.ACR_REPO_BASE }}/dhos-notifications-api
           tags: |
-            type=raw,value=dev
+            type=raw,value=dev-huma
             type=sha
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
