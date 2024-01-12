@@ -64,7 +64,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.ACR_REPO_BASE }}/dhos-notifications-api
           tags: |
-            type=raw,value=dev
+            type=raw,value=dev-huma
             type=sha
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
